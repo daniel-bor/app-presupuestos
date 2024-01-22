@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PresupuestoPrimario extends Model
 {
     use HasFactory;
+
+    public function filial()
+    {
+        return $this->belongsTo(Filial::class);
+    }
+
+    public function presupuestosSecundarios()
+    {
+        return $this->hasMany(PresupuestoSecundario::class);
+    }
 }

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Pais extends Model
 {
     use HasFactory;
+
+    public function filiales()
+    {
+        return $this->hasMany(Filial::class);
+    }
+
+    public function cuentas()
+    {
+        return $this->belongsToMany(Cuenta::class, 'cuenta_pais');
+    }
 }
