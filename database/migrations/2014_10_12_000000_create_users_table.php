@@ -15,10 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('telefono')->nullable();
+            $table->unsignedBigInteger('filial_id'); // Asegúrate de que la tabla 'filiales' exista.
+            $table->unsignedBigInteger('rol_id');
+            $table->text('descripcion')->nullable();
+            $table->integer('estado')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('filial_id')->references('id')->on('filials');
+            $table->foreign('rol_id')->references('id')->on('rols');
         });
     }
 
@@ -27,6 +35,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['filial_id']);
+            $table->dropForeign(['role_id']);
+        });
+        
         Schema::dropIfExists('users');
     }
 };
