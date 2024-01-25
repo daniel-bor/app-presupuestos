@@ -63,6 +63,7 @@ class PaisResource extends Resource
     {
         return [
             RelationManagers\FilialesRelationManager::class,
+            RelationManagers\CuentasRelationManager::class,
         ];
     }
 
