@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('presupuesto_primarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->nullable();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->unsignedBigInteger('filial_id'); // Asegúrate de que la tabla 'filiales' exista
             $table->decimal('total', 10, 2); // Ejemplo de campo para el total con dos decimales
-            $table->boolean('estado'); // Puede ser utilizado para activar/desactivar un presupuesto
+            $table->boolean('estado')->default(1); // Puede ser utilizado para activar/desactivar un presupuesto
             $table->timestamps(); // Crea automáticamente las columnas 'created_at' y 'updated_at'
             $table->softDeletes();
             

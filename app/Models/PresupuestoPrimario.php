@@ -11,6 +11,9 @@ class PresupuestoPrimario extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $dates = ['fecha_inicio', 'fecha_fin'];
+
+
     public function filial()
     {
         return $this->belongsTo(Filial::class);
