@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cuenta_id');
             $table->integer('estado')->default(1); // Puede ser utilizado para activar/desactivar la relación
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('pais_id')->references('id')->on('pais');
             $table->foreign('cuenta_id')->references('id')->on('cuentas');

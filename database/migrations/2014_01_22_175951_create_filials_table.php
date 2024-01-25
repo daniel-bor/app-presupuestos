@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pais_id'); // Asegúrate de que la tabla 'paises' exista
             $table->integer('estado')->default(1);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('pais_id')->references('id')->on('pais');
         });

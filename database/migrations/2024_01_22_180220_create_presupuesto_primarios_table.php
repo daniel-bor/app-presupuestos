@@ -19,7 +19,8 @@ return new class extends Migration
             $table->decimal('total', 10, 2); // Ejemplo de campo para el total con dos decimales
             $table->boolean('estado'); // Puede ser utilizado para activar/desactivar un presupuesto
             $table->timestamps(); // Crea automáticamente las columnas 'created_at' y 'updated_at'
-
+            $table->softDeletes();
+            
             $table->foreign('filial_id')->references('id')->on('filials');
         });
     }

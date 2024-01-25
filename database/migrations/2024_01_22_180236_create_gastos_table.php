@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('presupuesto_secundario_id');
             $table->boolean('estado');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('presupuesto_secundario_id')->references('id')->on('presupuesto_secundarios');
             $table->foreign('cuenta_id')->references('id')->on('cuentas');

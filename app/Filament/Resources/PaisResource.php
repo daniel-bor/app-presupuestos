@@ -23,7 +23,13 @@ class PaisResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nombre')
+                    ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('descripcion')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -31,7 +37,14 @@ class PaisResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nombre')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('descripcion')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
                 //
@@ -49,7 +62,7 @@ class PaisResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\FilialesRelationManager::class,
         ];
     }
 

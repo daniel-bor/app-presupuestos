@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('autorizado')->default(0); // Campo para indicar si el presupuesto ha sido autorizado
             $table->integer('estado')->default(1); // Puede ser utilizado para activar/desactivar un presupuesto
             $table->timestamps();
+            $table->softDeletes();
             
             $table->foreign('presupuesto_primario_id')->references('id')->on('presupuesto_primarios');
         });
