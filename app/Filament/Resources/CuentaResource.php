@@ -29,14 +29,15 @@ class CuentaResource extends Resource
                     ->maxLength(255)
                     ->unique(Cuenta::class, 'nombre')
                     ->placeholder('Nombre de la cuenta'),
-                Forms\Components\TextInput::make('descripcion')
-                    ->maxLength(255)
-                    ->placeholder('Descripción de la cuenta'),
                 Forms\Components\TextInput::make('codigo')
                     ->required()
                     ->maxLength(255)
                     ->unique(Cuenta::class, 'codigo')
                     ->placeholder('Código de la cuenta'),
+                Forms\Components\TextInput::make('descripcion')
+                    ->columnSpanFull()
+                    ->maxLength(255)
+                    ->placeholder('Descripción de la cuenta'),
             ]);
     }
 

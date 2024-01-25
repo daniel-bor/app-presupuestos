@@ -21,11 +21,12 @@ class CuentasRelationManager extends RelationManager
                 Forms\Components\TextInput::make('nombre')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('descripcion')
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('codigo')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('descripcion')
+                    ->maxLength(255)
+                    ->columnSpanFull(),
             ]);
     }
 

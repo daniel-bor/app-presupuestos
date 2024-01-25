@@ -21,4 +21,9 @@ class Cuenta extends Model
         return $this->belongsToMany(Pais::class, 'cuenta_pais');
     }
 
+    public function pais()
+    {
+        return $this->belongsToMany(Pais::class, 'cuenta_pais');
+    }
+
 }
