@@ -80,4 +80,9 @@ class PaisResource extends Resource
     {
         return 'Ajustes';
     }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Paises';
+    }
 }

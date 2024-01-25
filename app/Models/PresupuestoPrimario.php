@@ -23,4 +23,9 @@ class PresupuestoPrimario extends Model
     {
         return $this->hasMany(PresupuestoSecundario::class);
     }
+
+    public function presupuesto_secundarios()
+    {
+        return $this->hasMany(PresupuestoSecundario::class);
+    }
 }

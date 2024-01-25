@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('presupuesto_secundarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->nullable();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->decimal('total', 10, 2); // Ejemplo de campo para el total con dos decimales
             $table->unsignedBigInteger('presupuesto_primario_id');
-            $table->integer('autorizado')->default(0); // Campo para indicar si el presupuesto ha sido autorizado
+            $table->boolean('autorizado')->default(false); // Ejemplo de campo booleano (true/false)
             $table->integer('estado')->default(1); // Puede ser utilizado para activar/desactivar un presupuesto
             $table->timestamps();
             $table->softDeletes();
