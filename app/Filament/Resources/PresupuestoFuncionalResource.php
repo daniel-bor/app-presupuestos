@@ -91,7 +91,7 @@ class PresupuestoFuncionalResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\GastosRelationManager::class,
         ];
     }
 

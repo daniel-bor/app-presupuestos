@@ -18,6 +18,6 @@ class PresupuestoSecundario extends Model
 
     public function gastos()
     {
-        return $this->hasMany(Gasto::class);
+        return $this->hasMany(Gasto::class, 'presupuesto_secundario_id');
     }
 }

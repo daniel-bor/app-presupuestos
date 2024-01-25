@@ -17,10 +17,11 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->integer('cantidad');
             $table->decimal('precio_unitario', 10, 2);
-            $table->decimal('subtotal', 10, 2); // Podría ser calculado como cantidad * precio_unitario
+            $table->decimal('subtotal', 10, 2)->default(0); // Podría ser calculado como cantidad * precio_unitario
             $table->unsignedBigInteger('cuenta_id');
             $table->unsignedBigInteger('presupuesto_secundario_id');
-            $table->boolean('estado');
+            $table->boolean('ejecutado')->default(false);
+            $table->boolean('estado')->default(true);
             $table->timestamps();
             $table->softDeletes();
 
