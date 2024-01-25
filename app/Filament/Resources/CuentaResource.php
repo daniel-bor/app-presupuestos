@@ -23,7 +23,20 @@ class CuentaResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nombre')
+                    ->autofocus()
+                    ->required()
+                    ->maxLength(255)
+                    ->unique(Cuenta::class, 'nombre')
+                    ->placeholder('Nombre de la cuenta'),
+                Forms\Components\TextInput::make('descripcion')
+                    ->maxLength(255)
+                    ->placeholder('Descripción de la cuenta'),
+                Forms\Components\TextInput::make('codigo')
+                    ->required()
+                    ->maxLength(255)
+                    ->unique(Cuenta::class, 'codigo')
+                    ->placeholder('Código de la cuenta'),
             ]);
     }
 
@@ -31,7 +44,17 @@ class CuentaResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nombre')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('descripcion')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('codigo')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
                 //
@@ -60,5 +83,10 @@ class CuentaResource extends Resource
             'create' => Pages\CreateCuenta::route('/create'),
             'edit' => Pages\EditCuenta::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Ajustes';
     }
 }

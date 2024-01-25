@@ -29,9 +29,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('presupuestos_primario', function (Blueprint $table) {
-            $table->dropForeign(['filial_id']);
-        });
+        // Schema::table('presupuestos_primario', function (Blueprint $table) {
+        //     $table->dropForeign(['filial_id']);
+        // });
         Schema::dropIfExists('presupuesto_primarios');
     }
 };

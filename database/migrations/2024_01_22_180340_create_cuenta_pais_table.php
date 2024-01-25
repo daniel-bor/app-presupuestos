@@ -28,10 +28,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('cuenta_pais', function (Blueprint $table) {
-            $table->dropForeign(['pais_id']);
-            $table->dropForeign(['cuenta_id']);
-        });
+        // Schema::table('cuenta_pais', function (Blueprint $table) {
+        //     $table->dropForeign(['pais_id']);
+        //     $table->dropForeign(['cuenta_id']);
+        // });
         Schema::dropIfExists('cuenta_pais');
     }
 };

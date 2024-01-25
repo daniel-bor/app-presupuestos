@@ -33,10 +33,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('gastos', function (Blueprint $table) {
-            $table->dropForeign(['cuenta_id']);
-            $table->dropForeign(['presupuesto_secundario_id']);
-        });
+        // Schema::table('gastos', function (Blueprint $table) {
+        //     $table->dropForeign(['cuenta_id']);
+        //     $table->dropForeign(['presupuesto_secundario_id']);
+        // });
         Schema::dropIfExists('gastos');
     }
 };
