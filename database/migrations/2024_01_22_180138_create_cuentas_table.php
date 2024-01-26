@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('codigo')->unique(); // Código único para la cuenta
             $table->integer('estado')->default(1); // Puede ser utilizado para activar/desactivar una cuenta
             $table->timestamps(); // Crea automáticamente las columnas 'created_at' y 'updated_at'
+            $table->softDeletes();
         });
     }
 

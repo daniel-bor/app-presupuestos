@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable(); // 'nullable' significa que el campo puede ser NULL
             $table->integer('estado')->default(1); // Puede ser utilizado para activar/desactivar un país
             $table->timestamps(); // Crea automáticamente las columnas 'created_at' y 'updated_at'
+            $table->softDeletes(); // Crea automáticamente la columna 'deleted_at'
         });
     }
 

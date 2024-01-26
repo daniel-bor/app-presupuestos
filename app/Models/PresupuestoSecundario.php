@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PresupuestoSecundario extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     public function presupuestoPrimario()
     {
@@ -16,6 +18,6 @@ class PresupuestoSecundario extends Model
 
     public function gastos()
     {
-        return $this->hasMany(Gasto::class);
+        return $this->hasMany(Gasto::class, 'presupuesto_secundario_id');
     }
 }
