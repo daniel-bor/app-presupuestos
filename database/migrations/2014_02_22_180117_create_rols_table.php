@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->integer('estado')->default(1);
             $table->timestamps(); // crea automáticamente las columnas fecha_creacion y fecha_modificacion
+            $table->softDeletes();
         });
     }
 
